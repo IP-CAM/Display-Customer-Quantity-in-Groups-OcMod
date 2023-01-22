@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+<insertfile>_inc/summary.txt</insertfile>
+-->
+
+<modification>
+	<name>#ocmod.space: <insertvar>MODCODE</insertvar></name>
+	<code><insertvar>MODFILE</insertvar></code>
+	<version><insertvar>MODVERS</insertvar></version>
+	<author><insertvar>AUTHOR</insertvar></author>
+	<link><insertvar>XMLLINK</insertvar></link>
+
+    <file path="admin/view/template/customer/customer_group_list.t*" error="log">
+        <operation error="log" info="2.x">
+            <ignoreif regex="false" info=""><![CDATA[{{ header }}]]></ignoreif>
+            <search>
+                <![CDATA[<td class="text-right"><?php if ($sort == 'cg.sort_order') { ?>]]>
+            </search>
+            <add position="before">
+                <![CDATA[                  <!-- << Customer Group Size -->
+                  <?php if ($customer_group_size) { ?>
+                  <td class="text-right" style="width:5%;"><?php echo $column_size; ?></td>
+                  <?php } ?>
+                  <!-- Customer Group Size -->]]>
+            </add>
+        </operation>
+
+        <operation error="log" info="2.x">
+            <ignoreif regex="false" info=""><![CDATA[{{ header }}]]></ignoreif>
+            <search>
+                <![CDATA[<td class="text-right"><?php echo $customer_group['sort_order']; ?></td>]]>
+            </search>
+            <add position="before">
+                <![CDATA[                  <!-- << Customer Group Size -->
+                  <?php if ($customer_group_size) { ?>
+                  <td class="text-right"><?php echo $customer_group['size']; ?></td>
+                  <?php } ?>
+                  <!-- Customer Group Size -->]]>
+            </add>
+        </operation>
+
+        <operation error="log" info="3.x">
+            <ignoreif regex="false" info=""><![CDATA[<?php echo $header; ?>]]></ignoreif>
+            <search>
+                <![CDATA[<td class="text-right">{% if sort == 'cg.sort_order' %}]]>
+            </search>
+            <add position="before">
+                <![CDATA[                  {# << Customer Group Size #}
+                  {% if customer_group_size %}
+                  <td class="text-right" style="width:5%;">{{ column_size }}</td>
+                  {% endif %}
+                  {# >> Customer Group Size #}]]>
+            </add>
+        </operation>
+
+        <operation error="log" info="3.x">
+            <ignoreif regex="false" info=""><![CDATA[<?php echo $header; ?>]]></ignoreif>
+            <search>
+                <![CDATA[<td class="text-right">{{ customer_group.sort_order }}</td>]]>
+            </search>
+            <add position="before">
+                <![CDATA[                  {# << Customer Group Size #}
+                  {% if customer_group_size %}
+                  <td class="text-right">{{ customer_group.size }}</td>
+                  {% endif %}
+                  {# >> Customer Group Size #}]]>
+            </add>
+        </operation>
+    </file>
+</modification>
