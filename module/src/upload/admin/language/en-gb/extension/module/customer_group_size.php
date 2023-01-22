@@ -11,7 +11,7 @@ $_['text_success'] = 'Success! The <b><insertvar>MODNAME</insertvar></b> module 
 $_['error_permission'] = 'Warning! You do not have permission to modify the module <b><insertvar>MODNAME</insertvar></b>. ';
 $_['text_made'] = 'Made with <i class="fa fa-heart-o" aria-hidden="true"></i> in Ukraine';
 
-$_['text_about'] = 'The extension displays number of customers in the groups.';
+$_['text_about'] = 'The extension displays the number of customers in customer groups.';
 
 $_['entry_status'] = 'Status';
 $_['column_size'] = 'Customers';

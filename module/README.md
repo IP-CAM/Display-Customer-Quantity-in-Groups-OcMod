@@ -1,11 +1,11 @@
 # Customer Group Size
 
 ## Description
-**Customer Group Size** is an OpenCart extension that allows to display customer quantity in the groups.  
+**Customer Group Size** is an OpenCart extension that allows to display the number of customers in customer groups.  
 Compatible with OpenCart 2.x-3.x.
 
 ## Features
-* Displays customer quantity in the group list
+* Displays the number of customers in the list of customer groups
 * Does not modify system files (OCMOD)
 
 ## Live demo
