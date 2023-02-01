@@ -18,6 +18,6 @@ Licensed under the [MIT License](https://raw.githubusercontent.com/ocmod-space/o
 [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42642)
 
 ## Related extensions
-[Customer Loyalty](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42646) - allows customers to join other groups and access special prices or discounts available to those groups.  
+[Customer Loyalty](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42646) - auto-transfer of customers to appropriate groups according to total amounts they have spent.  
 [Invite Code](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42632) - allows customers to join other customer groups to get benefits like special prices and discounts.  
 [Default Registration Group](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42480) - allows to add new registered customers to a defined customer group.  
