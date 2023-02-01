@@ -12,11 +12,11 @@ Compatible with OpenCart 2.x-3.x.
 [Admin](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=customer/customer_group)
 
 ## License
-[MIT License](https://raw.githubusercontent.com/ocmod-space/ocmod-customer-group-size/main/LICENSE.txt)
+Licensed under the [MIT License](https://raw.githubusercontent.com/ocmod-space/ocmod-customer-group-size/main/LICENSE.txt)
 
 ## Download
 [Opencart Marketplace](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42642)
 
 ## Related extensions
-[Invite Code](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42632)  
-[Default Registration Group](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42480)
+[Invite Code](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42632) - allows customers to join other customer groups to get benefits like special prices and discounts.  
+[Default Registration Group](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42480) - allows to add new registered customers to a defined customer group.
