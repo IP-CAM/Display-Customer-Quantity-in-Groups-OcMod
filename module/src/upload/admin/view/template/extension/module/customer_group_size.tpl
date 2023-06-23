@@ -5,6 +5,7 @@
 <?php $module = 'module_customer_group_size'; ?>
 
 <?php $links = array(
+	'<i class="fa fa-home" aria-hidden="true"></i>'     => '<insertvar>MODLINK</insertvar>',
 	'<i class="fa fa-opencart" aria-hidden="true"></i>' => '<insertvar>OCMLINK</insertvar>',
 	'<i class="fa fa-github" aria-hidden="true"></i>'   => '<insertvar>GITLINK</insertvar>',
 	'MIT License'                                       => '<insertvar>LICLINK</insertvar>',
