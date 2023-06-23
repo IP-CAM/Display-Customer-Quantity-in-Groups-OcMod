@@ -1,11 +1,10 @@
 .git
-.github
 _fcl
 _pak
 zip
 .fclignore
 .gitignore
 .php-cs-fixer.php_cs
-.customer-group-size.code-workspace
+.code-workspace
 hideg.pwd
 pakrun.php
