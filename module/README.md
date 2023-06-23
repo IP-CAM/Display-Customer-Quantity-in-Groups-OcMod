@@ -9,7 +9,7 @@ Compatible with OpenCart 2.x-3.x.
 * Does not modify system files (OCMOD).
 
 ## Live demo
-Customer Group Size in [action](http://ocmod.freevar.com/oc3020/a/admin/index.php?route=customer/customer_group)
+Customer Group Size in [action](https://demo.ocmod.space/a/admin/index.php?route=customer/customer_group)
 
 ## License
 Licensed under the [MIT License](https://raw.githubusercontent.com/ocmod-space/ocmod-customer-group-size/main/LICENSE.txt)
