@@ -19,6 +19,6 @@ Licensed under the [MIT License](https://raw.githubusercontent.com/ocmod-space/o
 * [OCMod Space](https://www.ocmod.space/customer-group-size)
 
 ## Related extensions
-* [Customer Loyalty](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42646) - auto-transfer of customers to appropriate groups according to total amounts they have spent.
-* [Invite Code](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42632) - allows customers to join other customer groups to get benefits like special prices and discounts
-* [Default Registration Group](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42480) - allows to add new registered customers to a defined customer group.
+* Automatically group customers based on their total spend using the "[Customer Loyalty](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42646)" module.
+* Use the "[Invite Code](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42632)"module to allow customers to join other customer groups, for example to access discounts available to those groups.
+* Automatically assign newly registered customers to a defined customer group by using the "[Default Registration Group](https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=42480)" extension.
