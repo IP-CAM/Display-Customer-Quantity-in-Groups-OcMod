@@ -5,14 +5,14 @@
 */
 
 class ControllerExtensionModuleCustomerGroupSize extends Controller {
-	private $module = 'module_customer_group_size';
+	private $mname = 'customer_group_size';
+	private $mtype = 'module';
 
-	private $mstat;
-	private $mconf;
-	private $mtype;
-	private $mname;
-	private $route;
-	private $model;
+	private $module;
+	private $mstatus;
+	private $mconfig;
+	private $mroute;
+	private $mmodel;
 	private $ocver;
 
 	private $error = array();
@@ -20,26 +20,27 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 	public function __construct($params) {
 		parent::__construct($params);
 
-		if (strcmp(VERSION, '2.2.0.0') >= 0 && strcmp(VERSION, '3.0.0.0') < 0) {
-			$this->ocver = 2;
-		} elseif (strcmp(VERSION, '3.0.0.0') >= 0) {
+		if (strcmp(VERSION, '3.0.0.0') >= 0) {
 			$this->ocver = 3;
+		} elseif (strcmp(VERSION, '2.2.0.0') >= 0) {
+			$this->ocver = 2;
 		} else {
-			exit('Unsupported OpenCart version!');
+			echo 'Unsupported OpenCart version!';
+
+			exit(1);
 		}
 
-		$this->mtype = 'module';
-		$this->mname = explode('_', $this->module, 2)[1];
+		$this->module = $this->mtype . '_' . $this->mname;
 
-		$this->route = 'extension/' . $this->mtype . '/' . $this->mname;
-		$this->model = 'model_' . str_replace('/', '_', $this->route);
+		$this->mroute = 'extension/' . $this->mtype . '/' . $this->mname;
+		$this->mmodel = 'model_' . str_replace('/', '_', $this->mroute);
 
-		$this->mstat = $this->config->get($this->module . '_status');
-		$this->mconf = $this->config->get($this->module);
+		$this->mstatus = $this->config->get($this->module . '_status');
+		$this->mconfig = $this->config->get($this->module);
 	}
 
 	public function index() {
-		$this->load->language($this->route);
+		$this->load->language($this->mroute);
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -63,7 +64,7 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 			if (!isset($this->request->get['apply'])) {
 				$redirect_to = $this->url->link($extension_route, $token . '&type=' . $this->mtype, true);
 			} else {
-				$redirect_to = $this->url->link($this->route, $token . '&type=' . $this->mtype, true);
+				$redirect_to = $this->url->link($this->mroute, $token . '&type=' . $this->mtype, true);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -99,27 +100,27 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link($this->route, $token, true),
+			'href' => $this->url->link($this->mroute, $token, true),
 		);
 
-		$data['action'] = $this->url->link($this->route, $token, true);
+		$data['action'] = $this->url->link($this->mroute, $token, true);
 		$data['cancel'] = $this->url->link($extension_route, $token . '&type=' . $this->mtype, true);
 
 		if (isset($this->request->post[$this->module . '_status'])) {
 			$data['status'] = $this->request->post[$this->module . '_status'];
 		} else {
-			$data['status'] = $this->mstat;
+			$data['status'] = $this->mstatus;
 		}
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view($this->route, $data));
+		$this->response->setOutput($this->load->view($this->mroute, $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', $this->route)) {
+		if (!$this->user->hasPermission('modify', $this->mroute)) {
 			$this->error['permission'] = $this->language->get('error_permission');
 		}
 
@@ -130,8 +131,8 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 		$this->uninstall();
 
 		$this->load->model('user/user_group');
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', $this->route);
-		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', $this->route);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', $this->mroute);
+		$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', $this->mroute);
 
 		if ($this->ocver == 2) {
 			$event_route = 'extension/event';
@@ -149,11 +150,11 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 		$event = $this->mname . '_admin';
 
 		$trigger = 'admin/view/customer/customer_group_list/before';
-		$action = $this->route . '/beforeViewCustomerCustomerGroupList';
+		$action = $this->mroute . '/beforeViewCustomerCustomerGroupList';
 		$this->{$event_model}->addEvent($event, $trigger, $action);
 
 		$trigger = 'admin/view/design/layout_form/before';
-		$action = $this->route . '/beforeViewDesignLayoutForm';
+		$action = $this->mroute . '/beforeViewDesignLayoutForm';
 		$this->{$event_model}->addEvent($event, $trigger, $action);
 	}
 
@@ -182,8 +183,8 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 		}
 
 		$this->load->model('user/user_group');
-		$this->model_user_user_group->removePermission($this->user->getGroupId(), 'access', $this->route);
-		$this->model_user_user_group->removePermission($this->user->getGroupId(), 'modify', $this->route);
+		$this->model_user_user_group->removePermission($this->user->getGroupId(), 'access', $this->mroute);
+		$this->model_user_user_group->removePermission($this->user->getGroupId(), 'modify', $this->mroute);
 	}
 
 	// admin/view/customer/customer_group_list/before
@@ -191,15 +192,15 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 		if ($this->config->get($this->module . '_status')) {
 			$data['customer_group_size'] = true;
 
-			$this->load->model($this->route);
+			$this->load->model($this->mroute);
 
-			$this->load->language($this->route);
+			$this->load->language($this->mroute);
 			$data['column_size'] = $this->language->get('column_size');
 
 			foreach ($data['customer_groups'] as &$customer_group) {
 				$customer_group_id = $customer_group['customer_group_id'];
 
-				$customer_group['size'] = $this->{$this->model}->getCustomerGroupSize($customer_group_id);
+				$customer_group['size'] = $this->{$this->mmodel}->getCustomerGroupSize($customer_group_id);
 			}
 		}
 	}
