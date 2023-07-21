@@ -155,7 +155,6 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 		$trigger = 'admin/view/design/layout_form/before';
 		$action = $this->route . '/beforeViewDesignLayoutForm';
 		$this->{$event_model}->addEvent($event, $trigger, $action);
-
 	}
 
 	public function uninstall() {
@@ -190,7 +189,7 @@ class ControllerExtensionModuleCustomerGroupSize extends Controller {
 	// admin/view/customer/customer_group_list/before
 	public function beforeViewCustomerCustomerGroupList(&$route, &$data) {
 		if ($this->config->get($this->module . '_status')) {
-			$data['customer_group_size']  = true;
+			$data['customer_group_size'] = true;
 
 			$this->load->model($this->route);
 

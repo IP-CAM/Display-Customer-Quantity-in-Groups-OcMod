@@ -15,5 +15,3 @@ $_['text_about'] = 'Розширення <b><insertvar>MODNAME</insertvar></b> �
 
 $_['entry_status'] = 'Статус';
 $_['column_size'] = 'Клієнтів';
-
-
